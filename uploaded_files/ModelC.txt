@@ -1,0 +1,108 @@
+package com.tugasakhir.ideapedia;
+
+import jakarta.persistence.*;
+
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Table(name = "ModelC")
+public class ModelC {
+
+    @ManyToMany(mappedBy = "modelCList")
+    private List<ModelB> modelBList;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IDModelC", nullable = false)
+    private Long idModelC;
+
+    @Column(name = "CreatedBy", nullable = false, columnDefinition = "bigint DEFAULT 1")
+    private Long createdBy = 1L;
+
+    @Column(name = "CreatedDate", nullable = false, columnDefinition = "datetime DEFAULT getdate()")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    @Column(name = "IsActive", nullable = true, columnDefinition = "smallint")
+    private Short isActive;
+
+    @Column(name = "ModelC", length = 25, nullable = false, columnDefinition = "char(25) COLLATE SQL_Latin1_General_CP1_CI_AS DEFAULT 'Default Model C'")
+    private String modelC = "Default Model C";
+
+    @Column(name = "ModifiedBy", nullable = true, columnDefinition = "bigint")
+    private Long modifiedBy;
+
+    @Column(name = "ModifiedDate", nullable = true, columnDefinition = "datetime")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifiedDate;
+
+    // @PrePersist dan @PreUpdate untuk set otomatis
+    @PrePersist
+    protected void onCreate() {
+        this.createdDate = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.modifiedDate = new Date();
+    }
+
+    // Getters dan Setters
+
+    public Long getIdModelC() {
+        return idModelC;
+    }
+
+    public void setIdModelC(Long idModelC) {
+        this.idModelC = idModelC;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Short getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Short isActive) {
+        this.isActive = isActive;
+    }
+
+    public String getModelC() {
+        return modelC;
+    }
+
+    public void setModelC(String modelC) {
+        this.modelC = modelC;
+    }
+
+    public Long getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(Long modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+}

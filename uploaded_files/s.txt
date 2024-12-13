@@ -1,0 +1,23 @@
+{
+    fullName Eddy Wijaya,
+    email eddywijay18@gmail.com,
+    birthPlace Kotabaru,
+    birthDate 2024/11/11,
+    schoolName MAN,
+    lastEducation SMA,
+    graduationYear 2021,
+    gpa 2.44,
+    idNumber 2023102909849021,
+    gender Laki-laki,
+    religion Islam,
+    maritalStatus Belum Menikah,
+    address Jl Diponegoro,
+    phoneNumber 081776584667,
+    aiRecommendation baaik,
+    active null,
+    stages {}
+
+bachelor of art
+
+pengalaman kerja 9 tahun sebagai project manajer
+}
